@@ -14,7 +14,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
   const isActive = (path: string) => location.pathname === path;
 
   return (
-    <header className="bg-white shadow-sm border-b border-gray-200 sticky top-0 z-50">
+    <header className="bg-gray-900/95 backdrop-blur-sm border-b border-gray-700 sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
@@ -22,7 +22,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
             <div className="bg-gradient-to-r from-blue-600 to-purple-600 p-2 rounded-lg">
               <FileText className="h-6 w-6 text-white" />
             </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               ResumeAI Pro
             </span>
           </Link>
@@ -33,32 +33,32 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
               <>
                 <Link 
                   to="/" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Home
                 </Link>
                 <Link 
                   to="/features" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/features') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/features') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Features
                 </Link>
                 <Link 
                   to="/pricing" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/pricing') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/pricing') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Pricing
                 </Link>
                 <Link 
                   to="/contact" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/contact') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/contact') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Contact
@@ -68,16 +68,16 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
               <>
                 <Link 
                   to="/dashboard" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/dashboard') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/dashboard') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Dashboard
                 </Link>
                 <Link 
                   to="/profile" 
-                  className={`text-gray-700 hover:text-blue-600 transition-colors ${
-                    isActive('/profile') ? 'text-blue-600 font-medium' : ''
+                  className={`text-gray-300 hover:text-blue-400 transition-colors ${
+                    isActive('/profile') ? 'text-blue-400 font-medium' : ''
                   }`}
                 >
                   Profile
@@ -92,7 +92,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
               <>
                 <Link 
                   to="/login" 
-                  className="text-gray-700 hover:text-blue-600 transition-colors"
+                  className="text-gray-300 hover:text-blue-400 transition-colors"
                 >
                   Sign In
                 </Link>
@@ -107,7 +107,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
             ) : (
               <button 
                 onClick={onLogout}
-                className="text-gray-700 hover:text-red-600 transition-colors"
+                className="text-gray-300 hover:text-red-400 transition-colors"
               >
                 Sign Out
               </button>
@@ -117,7 +117,7 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
           {/* Mobile menu button */}
           <button
             onClick={() => setIsMenuOpen(!isMenuOpen)}
-            className="md:hidden p-2 rounded-md text-gray-700 hover:text-blue-600 hover:bg-gray-100"
+            className="md:hidden p-2 rounded-md text-gray-300 hover:text-blue-400 hover:bg-gray-800"
           >
             {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
           </button>
@@ -125,24 +125,24 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
 
         {/* Mobile Navigation */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 border-t border-gray-200">
+          <div className="md:hidden py-4 border-t border-gray-700">
             <div className="flex flex-col space-y-4">
               {!isAuthenticated ? (
                 <>
-                  <Link to="/" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Home
                   </Link>
-                  <Link to="/features" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/features" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Features
                   </Link>
-                  <Link to="/pricing" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/pricing" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Pricing
                   </Link>
-                  <Link to="/contact" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/contact" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Contact
                   </Link>
-                  <div className="pt-4 border-t border-gray-200">
-                    <Link to="/login" className="block text-gray-700 hover:text-blue-600 transition-colors mb-2">
+                  <div className="pt-4 border-t border-gray-700">
+                    <Link to="/login" className="block text-gray-300 hover:text-blue-400 transition-colors mb-2">
                       Sign In
                     </Link>
                     <Link 
@@ -156,15 +156,15 @@ const Header: React.FC<HeaderProps> = ({ isAuthenticated = false, onLogout }) =>
                 </>
               ) : (
                 <>
-                  <Link to="/dashboard" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/dashboard" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Dashboard
                   </Link>
-                  <Link to="/profile" className="text-gray-700 hover:text-blue-600 transition-colors">
+                  <Link to="/profile" className="text-gray-300 hover:text-blue-400 transition-colors">
                     Profile
                   </Link>
                   <button 
                     onClick={onLogout}
-                    className="text-left text-gray-700 hover:text-red-600 transition-colors"
+                    className="text-left text-gray-300 hover:text-red-400 transition-colors"
                   >
                     Sign Out
                   </button>

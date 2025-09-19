@@ -13,12 +13,7 @@ import {
   Plus,
   TrendingUp
 } from 'lucide-react';
-import Header from '../components/Header';
-
-interface DashboardProps {
-  user: any;
-  onLogout: () => void;
-}
+import { useAuth } from '../contexts/AuthContext';
 
 interface ResumeAnalysis {
   improved_resume: string;
@@ -34,7 +29,8 @@ interface ResumeAnalysis {
   tips: string[];
 }
 
-const Dashboard: React.FC<DashboardProps> = ({ user, onLogout }) => {
+const Dashboard: React.FC = () => {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
     resume: '',
     job_description: '',

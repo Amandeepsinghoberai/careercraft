@@ -62,7 +62,7 @@ const Pricing: React.FC = () => {
   ];
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
       {/* Hero Section */}
       <section className="py-20 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -74,15 +74,15 @@ const Pricing: React.FC = () => {
             Start free and upgrade when you're ready for more features.
           </p>
           <div className="flex items-center justify-center space-x-4 mb-8">
-            <span className="text-gray-600">Monthly</span>
+            <span className="text-gray-300">Monthly</span>
             <div className="relative">
               <input type="checkbox" className="sr-only" />
-              <div className="w-12 h-6 bg-gray-300 rounded-full shadow-inner"></div>
+              <div className="w-12 h-6 bg-gray-600 rounded-full shadow-inner"></div>
               <div className="absolute left-1 top-1 w-4 h-4 bg-white rounded-full shadow transition-transform"></div>
             </div>
-            <span className="text-gray-600">
+            <span className="text-gray-300">
               Yearly 
-              <span className="ml-2 bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full">
+              <span className="ml-2 bg-green-500/20 text-green-400 text-xs px-2 py-1 rounded-full">
                 Save 20%
               </span>
             </span>
@@ -91,16 +91,16 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* Pricing Cards */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {plans.map((plan, index) => (
               <div
                 key={index}
-                className={`relative bg-white rounded-2xl shadow-lg border-2 p-8 ${
+                className={`relative bg-gray-800/50 backdrop-blur-sm rounded-2xl shadow-lg border-2 p-8 ${
                   plan.popular 
                     ? 'border-blue-500 transform scale-105' 
-                    : 'border-gray-200'
+                    : 'border-gray-700'
                 }`}
               >
                 {plan.popular && (
@@ -115,8 +115,8 @@ const Pricing: React.FC = () => {
                 <div className="text-center mb-8">
                   <div className="flex items-center justify-center mb-4">
                     {plan.name === 'Free' && (
-                      <div className="bg-gray-100 p-3 rounded-lg">
-                        <Zap className="h-8 w-8 text-gray-600" />
+                      <div className="bg-gray-700 p-3 rounded-lg">
+                        <Zap className="h-8 w-8 text-gray-300" />
                       </div>
                     )}
                     {plan.name === 'Pro' && (
@@ -125,29 +125,35 @@ const Pricing: React.FC = () => {
                       </div>
                     )}
                     {plan.name === 'Enterprise' && (
-                      <div className="bg-purple-100 p-3 rounded-lg">
-                        <Star className="h-8 w-8 text-purple-600" />
+                      <div className="bg-purple-500/20 p-3 rounded-lg">
+                        <Star className="h-8 w-8 text-purple-400" />
                       </div>
                     )}
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 mb-2">{plan.name}</h3>
+                  <h3 className="text-2xl font-bold text-white mb-2">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gray-900">{plan.price}</span>
-                    <span className="text-gray-600 ml-2">/{plan.period}</span>
+                    <span className="text-4xl font-bold text-white">{plan.price}</span>
+                    <span className="text-gray-300 ml-2">/{plan.period}</span>
                   </div>
-                  <p className="text-gray-600">{plan.description}</p>
+                  <p className="text-gray-300">{plan.description}</p>
                 </div>
 
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start">
-                      <Check className="h-5 w-5 text-green-500 mr-3 mt-0.5 flex-shrink-0" />
-                      <span className="text-gray-700">{feature}</span>
+                      <Check className="h-5 w-5 text-green-400 mr-3 mt-0.5 flex-shrink-0" />
+                      <span className="text-gray-300">{feature}</span>
                     </li>
                   ))}
                 </ul>
 
-                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${plan.buttonStyle}`}>
+                <button className={`w-full py-3 px-6 rounded-lg font-semibold transition-all duration-200 ${
+                  plan.name === 'Free' 
+                    ? 'border-2 border-gray-300 text-gray-300 hover:border-blue-400 hover:text-blue-400' 
+                    : plan.name === 'Pro'
+                    ? 'bg-gradient-to-r from-blue-600 to-purple-600 text-white hover:from-blue-700 hover:to-purple-700'
+                    : 'border-2 border-purple-600 text-purple-400 hover:bg-purple-600 hover:text-white'
+                }`}>
                   {plan.buttonText}
                 </button>
               </div>
@@ -157,50 +163,50 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* FAQ Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl font-bold text-white mb-4">
               Frequently Asked Questions
             </h2>
-            <p className="text-xl text-gray-600">
+            <p className="text-xl text-gray-300">
               Everything you need to know about our pricing and features
             </p>
           </div>
 
           <div className="space-y-8">
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Can I change my plan at any time?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Yes, you can upgrade or downgrade your plan at any time. Changes will be reflected in your next billing cycle.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Is there a free trial for the Pro plan?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Yes, we offer a 7-day free trial for the Pro plan. No credit card required to start your trial.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 What payment methods do you accept?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 We accept all major credit cards (Visa, MasterCard, American Express) and PayPal for your convenience.
               </p>
             </div>
 
-            <div className="bg-white p-6 rounded-lg shadow-sm">
-              <h3 className="text-lg font-semibold text-gray-900 mb-2">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-lg shadow-sm">
+              <h3 className="text-lg font-semibold text-white mb-2">
                 Do you offer refunds?
               </h3>
-              <p className="text-gray-600">
+              <p className="text-gray-300">
                 Yes, we offer a 30-day money-back guarantee. If you're not satisfied with our service, we'll provide a full refund.
               </p>
             </div>
@@ -209,7 +215,7 @@ const Pricing: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl font-bold text-white mb-4">
             Ready to Transform Your Resume?

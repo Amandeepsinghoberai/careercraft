@@ -1,33 +1,36 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FileText, Mail, Lock, Eye, EyeOff } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
-interface LoginProps {
-  onLogin: (userData: any) => void;
-}
-
-const Login: React.FC<LoginProps> = ({ onLogin }) => {
+const Login: React.FC = () => {
   const [formData, setFormData] = useState({
     email: '',
     password: ''
   });
   const [showPassword, setShowPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { signIn } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsLoading(true);
+    setError(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      onLogin({
-        id: 1,
-        name: 'John Doe',
-        email: formData.email,
-        plan: 'Pro'
-      });
+    try {
+      const { error } = await signIn(formData.email, formData.password);
+      if (error) {
+        setError(error.message);
+      } else {
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -47,6 +50,11 @@ const Login: React.FC<LoginProps> = ({ onLogin }) => {
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+              {error}
+            </div>
+          )}
           <div className="space-y-4">
             <div>
               <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">

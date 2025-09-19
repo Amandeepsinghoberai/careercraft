@@ -89,7 +89,11 @@ const Features: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-blue-900 to-purple-900">
+      {/* Debug Info */}
+      <div className="fixed top-20 left-4 z-50 bg-red-600 text-white p-2 rounded">
+        Features Page Loaded
+      </div>
       {/* Hero Section */}
       <section className="py-20 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
@@ -107,25 +111,39 @@ const Features: React.FC = () => {
       </section>
 
       {/* Main Features */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Everything You Need to Succeed
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Our comprehensive suite of tools ensures your resume stands out in today's competitive job market
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {features.map((feature, index) => (
-              <div key={index} className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow border border-gray-100">
-                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${getColorClasses(feature.color)}`}>
-                  <feature.icon className="h-6 w-6" />
+              <div key={index} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+                <div className={`w-12 h-12 rounded-lg flex items-center justify-center mb-6 ${
+                  feature.color === 'blue' ? 'bg-blue-500/20' :
+                  feature.color === 'purple' ? 'bg-purple-500/20' :
+                  feature.color === 'green' ? 'bg-green-500/20' :
+                  feature.color === 'orange' ? 'bg-orange-500/20' :
+                  feature.color === 'red' ? 'bg-red-500/20' :
+                  'bg-indigo-500/20'
+                }`}>
+                  <feature.icon className={`h-6 w-6 ${
+                    feature.color === 'blue' ? 'text-blue-400' :
+                    feature.color === 'purple' ? 'text-purple-400' :
+                    feature.color === 'green' ? 'text-green-400' :
+                    feature.color === 'orange' ? 'text-orange-400' :
+                    feature.color === 'red' ? 'text-red-400' :
+                    'text-indigo-400'
+                  }`} />
                 </div>
-                <h3 className="text-xl font-semibold text-gray-900 mb-4">{feature.title}</h3>
-                <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                <h3 className="text-xl font-semibold text-white mb-4">{feature.title}</h3>
+                <p className="text-gray-300 leading-relaxed">{feature.description}</p>
               </div>
             ))}
           </div>
@@ -133,13 +151,13 @@ const Features: React.FC = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Transform your resume in just three simple steps with our AI-powered optimization
             </p>
           </div>
@@ -149,14 +167,14 @@ const Features: React.FC = () => {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Upload Your Resume</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Upload Your Resume</h3>
+              <p className="text-gray-300 mb-6">
                 Simply paste your current resume content or upload your existing resume file. 
                 Our system accepts all major formats.
               </p>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-4 rounded-lg shadow-sm">
                 <FileText className="h-8 w-8 text-gray-400 mx-auto mb-2" />
-                <p className="text-sm text-gray-500">Supports PDF, DOC, DOCX, TXT</p>
+                <p className="text-sm text-gray-400">Supports PDF, DOC, DOCX, TXT</p>
               </div>
             </div>
 
@@ -164,14 +182,14 @@ const Features: React.FC = () => {
               <div className="bg-gradient-to-r from-purple-600 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">AI Analysis & Optimization</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl font-semibold text-white mb-4">AI Analysis & Optimization</h3>
+              <p className="text-gray-300 mb-6">
                 Our advanced AI analyzes your resume against industry standards, ATS requirements, 
                 and job market trends to identify improvements.
               </p>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <Zap className="h-8 w-8 text-purple-500 mx-auto mb-2" />
-                <p className="text-sm text-gray-500">Processing takes 2-3 seconds</p>
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-4 rounded-lg shadow-sm">
+                <Zap className="h-8 w-8 text-purple-400 mx-auto mb-2" />
+                <p className="text-sm text-gray-400">Processing takes 2-3 seconds</p>
               </div>
             </div>
 
@@ -179,14 +197,14 @@ const Features: React.FC = () => {
               <div className="bg-gradient-to-r from-pink-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get Optimized Results</h3>
-              <p className="text-gray-600 mb-6">
+              <h3 className="text-xl font-semibold text-white mb-4">Get Optimized Results</h3>
+              <p className="text-gray-300 mb-6">
                 Receive your improved resume, detailed analysis, cover letter, and LinkedIn 
                 optimization suggestions instantly.
               </p>
-              <div className="bg-white p-4 rounded-lg shadow-sm">
-                <Target className="h-8 w-8 text-green-500 mx-auto mb-2" />
-                <p className="text-sm text-gray-500">Complete package delivered</p>
+              <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-4 rounded-lg shadow-sm">
+                <Target className="h-8 w-8 text-green-400 mx-auto mb-2" />
+                <p className="text-sm text-gray-400">Complete package delivered</p>
               </div>
             </div>
           </div>
@@ -194,13 +212,13 @@ const Features: React.FC = () => {
       </section>
 
       {/* Benefits */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Proven Results That Matter
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Join thousands of professionals who've transformed their careers with our platform
             </p>
           </div>
@@ -211,8 +229,8 @@ const Features: React.FC = () => {
                 <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                   <benefit.icon className="h-8 w-8 text-white" />
                 </div>
-                <h3 className="text-lg font-semibold text-gray-900 mb-3">{benefit.title}</h3>
-                <p className="text-gray-600">{benefit.description}</p>
+                <h3 className="text-lg font-semibold text-white mb-3">{benefit.title}</h3>
+                <p className="text-gray-300">{benefit.description}</p>
               </div>
             ))}
           </div>
@@ -220,71 +238,71 @@ const Features: React.FC = () => {
       </section>
 
       {/* Detailed Feature Breakdown */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               What You Get With Every Analysis
             </h2>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
             <div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-6">Comprehensive Resume Analysis</h3>
+              <h3 className="text-2xl font-bold text-white mb-6">Comprehensive Resume Analysis</h3>
               <div className="space-y-4">
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">ATS Compatibility Score</h4>
-                    <p className="text-gray-600">Get a detailed score showing how well your resume will perform with ATS systems</p>
+                    <h4 className="font-semibold text-white">ATS Compatibility Score</h4>
+                    <p className="text-gray-300">Get a detailed score showing how well your resume will perform with ATS systems</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Strengths & Weaknesses</h4>
-                    <p className="text-gray-600">Identify what's working well and what needs improvement in your current resume</p>
+                    <h4 className="font-semibold text-white">Strengths & Weaknesses</h4>
+                    <p className="text-gray-300">Identify what's working well and what needs improvement in your current resume</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Keyword Gap Analysis</h4>
-                    <p className="text-gray-600">Discover missing keywords that could help you get past ATS filters</p>
+                    <h4 className="font-semibold text-white">Keyword Gap Analysis</h4>
+                    <p className="text-gray-300">Discover missing keywords that could help you get past ATS filters</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-3">
-                  <CheckCircle className="h-6 w-6 text-green-500 mt-1 flex-shrink-0" />
+                  <CheckCircle className="h-6 w-6 text-green-400 mt-1 flex-shrink-0" />
                   <div>
-                    <h4 className="font-semibold text-gray-900">Actionable Tips</h4>
-                    <p className="text-gray-600">Receive specific, actionable suggestions to improve your resume's impact</p>
+                    <h4 className="font-semibold text-white">Actionable Tips</h4>
+                    <p className="text-gray-300">Receive specific, actionable suggestions to improve your resume's impact</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 p-6 rounded-lg mb-6">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg">
+              <div className="bg-gradient-to-r from-blue-600/20 to-purple-600/20 p-6 rounded-lg mb-6">
                 <div className="flex justify-between items-center mb-4">
-                  <span className="font-medium text-gray-700">ATS Compatibility Score</span>
-                  <span className="font-bold text-2xl text-green-600">87/100</span>
+                  <span className="font-medium text-gray-300">ATS Compatibility Score</span>
+                  <span className="font-bold text-2xl text-green-400">87/100</span>
                 </div>
-                <div className="w-full bg-gray-200 rounded-full h-3">
+                <div className="w-full bg-gray-700 rounded-full h-3">
                   <div className="h-3 rounded-full bg-green-500" style={{ width: '87%' }}></div>
                 </div>
               </div>
               <div className="space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Strengths Identified</span>
-                  <span className="font-semibold text-green-600">5</span>
+                  <span className="text-gray-300">Strengths Identified</span>
+                  <span className="font-semibold text-green-400">5</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Areas to Improve</span>
-                  <span className="font-semibold text-orange-600">3</span>
+                  <span className="text-gray-300">Areas to Improve</span>
+                  <span className="font-semibold text-orange-400">3</span>
                 </div>
                 <div className="flex items-center justify-between">
-                  <span className="text-gray-600">Missing Keywords</span>
-                  <span className="font-semibold text-red-600">7</span>
+                  <span className="text-gray-300">Missing Keywords</span>
+                  <span className="font-semibold text-red-400">7</span>
                 </div>
               </div>
             </div>
@@ -293,7 +311,7 @@ const Features: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Resume?

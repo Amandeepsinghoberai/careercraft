@@ -1,12 +1,9 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { FileText, Mail, Lock, User, Eye, EyeOff } from 'lucide-react';
+import { useAuth } from '../contexts/AuthContext';
 
-interface SignupProps {
-  onSignup: (userData: any) => void;
-}
-
-const Signup: React.FC<SignupProps> = ({ onSignup }) => {
+const Signup: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -16,27 +13,38 @@ const Signup: React.FC<SignupProps> = ({ onSignup }) => {
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [error, setError] = useState<string | null>(null);
+  const { signUp } = useAuth();
+  const navigate = useNavigate();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     
     if (formData.password !== formData.confirmPassword) {
-      alert('Passwords do not match');
+      setError('Passwords do not match');
+      return;
+    }
+
+    if (formData.password.length < 6) {
+      setError('Password must be at least 6 characters long');
       return;
     }
 
     setIsLoading(true);
+    setError(null);
     
-    // Simulate API call
-    setTimeout(() => {
-      onSignup({
-        id: 1,
-        name: formData.name,
-        email: formData.email,
-        plan: 'Free'
-      });
+    try {
+      const { error } = await signUp(formData.email, formData.password);
+      if (error) {
+        setError(error.message);
+      } else {
+        navigate('/dashboard');
+      }
+    } catch (err) {
+      setError('An unexpected error occurred');
+    } finally {
       setIsLoading(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -56,6 +64,11 @@ const Signup: React.FC<SignupProps> = ({ onSignup }) => {
         </div>
 
         <form className="mt-8 space-y-6" onSubmit={handleSubmit}>
+          {error && (
+            <div className="bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg">
+              {error}
+            </div>
+          )}
           <div className="space-y-4">
             <div>
               <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">

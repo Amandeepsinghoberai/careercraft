@@ -1,16 +1,12 @@
 import React, { useState } from 'react';
 import { User, Mail, Phone, MapPin, Briefcase, Save, Camera } from 'lucide-react';
-import Header from '../components/Header';
+import { useAuth } from '../contexts/AuthContext';
 
-interface ProfileProps {
-  user: any;
-  onLogout: () => void;
-}
-
-const Profile: React.FC<ProfileProps> = ({ user, onLogout }) => {
+const Profile: React.FC = () => {
+  const { user } = useAuth();
   const [formData, setFormData] = useState({
-    name: user?.name || 'John Doe',
-    email: user?.email || 'john@example.com',
+    name: user?.user_metadata?.name || user?.email?.split('@')[0] || 'User',
+    email: user?.email || 'user@example.com',
     phone: '+1 (555) 123-4567',
     location: 'San Francisco, CA',
     title: 'Software Engineer',

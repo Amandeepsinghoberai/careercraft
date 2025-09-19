@@ -7,10 +7,7 @@ import Dashboard from './pages/Dashboard';
 import Profile from './pages/Profile';
 import Pricing from './pages/Pricing';
 import Features from './pages/Features';
-import FeaturesDebug from './pages/Features-debug';
-import FeaturesSimple from './pages/Features-simple';
 import Contact from './pages/Contact';
-import TestPage from './pages/TestPage';
 import { CustomNavbar } from './components/CustomNavbar';
 import { AuthProvider, useAuth } from './contexts/AuthContext';
 
@@ -56,7 +53,6 @@ const AppContent = () => {
       <CustomNavbar />
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/test" element={<TestPage />} />
         <Route path="/features" element={<Features />} />
         <Route path="/pricing" element={<Pricing />} />
         <Route path="/contact" element={<Contact />} />
