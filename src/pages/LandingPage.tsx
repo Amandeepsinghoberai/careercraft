@@ -12,25 +12,22 @@ import {
   Shield,
   Clock
 } from 'lucide-react';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const LandingPage: React.FC = () => {
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-blue-50 via-white to-purple-50 py-20">
+      <section className="relative py-20 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center">
-            <h1 className="text-4xl md:text-6xl font-bold text-gray-900 mb-6">
+            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
               Transform Your Resume with{' '}
-              <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
                 AI Power
               </span>
             </h1>
-            <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+            <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
               Get noticed by employers with our advanced AI resume optimizer. Beat ATS systems, 
               highlight your strengths, and land your dream job faster than ever before.
             </p>
@@ -55,98 +52,98 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-16 bg-white">
+      <section className="py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
             <div>
-              <div className="text-3xl font-bold text-blue-600 mb-2">50K+</div>
-              <div className="text-gray-600">Resumes Optimized</div>
+              <div className="text-3xl font-bold text-blue-400 mb-2">50K+</div>
+              <div className="text-gray-300">Resumes Optimized</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-purple-600 mb-2">95%</div>
-              <div className="text-gray-600">ATS Pass Rate</div>
+              <div className="text-3xl font-bold text-purple-400 mb-2">95%</div>
+              <div className="text-gray-300">ATS Pass Rate</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-green-600 mb-2">3x</div>
-              <div className="text-gray-600">More Interviews</div>
+              <div className="text-3xl font-bold text-green-400 mb-2">3x</div>
+              <div className="text-gray-300">More Interviews</div>
             </div>
             <div>
-              <div className="text-3xl font-bold text-orange-600 mb-2">24/7</div>
-              <div className="text-gray-600">AI Support</div>
+              <div className="text-3xl font-bold text-orange-400 mb-2">24/7</div>
+              <div className="text-gray-300">AI Support</div>
             </div>
           </div>
         </div>
       </section>
 
       {/* Features Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               Why Choose ResumeAI Pro?
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Our AI-powered platform provides everything you need to create a winning resume
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-blue-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <Target className="h-6 w-6 text-blue-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-blue-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <Target className="h-6 w-6 text-blue-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">ATS Optimization</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">ATS Optimization</h3>
+              <p className="text-gray-300">
                 Ensure your resume passes through Applicant Tracking Systems with our advanced optimization algorithms.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-purple-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <Zap className="h-6 w-6 text-purple-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-purple-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <Zap className="h-6 w-6 text-purple-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">AI-Powered Analysis</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">AI-Powered Analysis</h3>
+              <p className="text-gray-300">
                 Get instant feedback on your resume with detailed analysis of strengths, weaknesses, and improvements.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-green-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <FileText className="h-6 w-6 text-green-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-green-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <FileText className="h-6 w-6 text-green-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Smart Formatting</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Smart Formatting</h3>
+              <p className="text-gray-300">
                 Professional formatting with industry-standard layouts that recruiters love to see.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-orange-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <BarChart3 className="h-6 w-6 text-orange-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-orange-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <BarChart3 className="h-6 w-6 text-orange-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Performance Metrics</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Performance Metrics</h3>
+              <p className="text-gray-300">
                 Track your resume's performance with detailed analytics and improvement suggestions.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-red-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <Shield className="h-6 w-6 text-red-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-red-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <Shield className="h-6 w-6 text-red-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Privacy Protected</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Privacy Protected</h3>
+              <p className="text-gray-300">
                 Your data is secure with enterprise-grade encryption and privacy protection.
               </p>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
-              <div className="bg-indigo-100 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
-                <Clock className="h-6 w-6 text-indigo-600" />
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg hover:shadow-xl transition-shadow">
+              <div className="bg-indigo-500/20 w-12 h-12 rounded-lg flex items-center justify-center mb-6">
+                <Clock className="h-6 w-6 text-indigo-400" />
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Instant Results</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Instant Results</h3>
+              <p className="text-gray-300">
                 Get your optimized resume in seconds, not hours. Fast turnaround for urgent applications.
               </p>
             </div>
@@ -155,13 +152,13 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* How It Works */}
-      <section className="py-20 bg-white">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               How It Works
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Transform your resume in just three simple steps
             </p>
           </div>
@@ -171,8 +168,8 @@ const LandingPage: React.FC = () => {
               <div className="bg-gradient-to-r from-blue-600 to-purple-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">1</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Upload Your Resume</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Upload Your Resume</h3>
+              <p className="text-gray-300">
                 Simply paste your current resume content or upload your existing resume file.
               </p>
             </div>
@@ -181,8 +178,8 @@ const LandingPage: React.FC = () => {
               <div className="bg-gradient-to-r from-purple-600 to-pink-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">2</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">AI Analysis</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">AI Analysis</h3>
+              <p className="text-gray-300">
                 Our AI analyzes your resume against industry standards and job requirements.
               </p>
             </div>
@@ -191,8 +188,8 @@ const LandingPage: React.FC = () => {
               <div className="bg-gradient-to-r from-pink-600 to-red-600 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
                 <span className="text-white text-2xl font-bold">3</span>
               </div>
-              <h3 className="text-xl font-semibold text-gray-900 mb-4">Get Results</h3>
-              <p className="text-gray-600">
+              <h3 className="text-xl font-semibold text-white mb-4">Get Results</h3>
+              <p className="text-gray-300">
                 Receive your optimized resume, cover letter, and LinkedIn profile instantly.
               </p>
             </div>
@@ -201,25 +198,25 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* Testimonials */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
+            <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
               What Our Users Say
             </h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p className="text-xl text-gray-300 max-w-2xl mx-auto">
               Join thousands of professionals who've transformed their careers
             </p>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 "ResumeAI Pro helped me land my dream job at Google. The ATS optimization was incredible!"
               </p>
               <div className="flex items-center">
@@ -227,19 +224,19 @@ const LandingPage: React.FC = () => {
                   SJ
                 </div>
                 <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Sarah Johnson</div>
-                  <div className="text-gray-600 text-sm">Software Engineer at Google</div>
+                  <div className="font-semibold text-white">Sarah Johnson</div>
+                  <div className="text-gray-300 text-sm">Software Engineer at Google</div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 "Increased my interview rate by 300%. The AI suggestions were spot-on and professional."
               </p>
               <div className="flex items-center">
@@ -247,19 +244,19 @@ const LandingPage: React.FC = () => {
                   MC
                 </div>
                 <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Michael Chen</div>
-                  <div className="text-gray-600 text-sm">Marketing Director</div>
+                  <div className="font-semibold text-white">Michael Chen</div>
+                  <div className="text-gray-300 text-sm">Marketing Director</div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg">
+            <div className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-8 rounded-xl shadow-lg">
               <div className="flex items-center mb-4">
                 {[...Array(5)].map((_, i) => (
                   <Star key={i} className="h-5 w-5 text-yellow-400 fill-current" />
                 ))}
               </div>
-              <p className="text-gray-600 mb-6">
+              <p className="text-gray-300 mb-6">
                 "The cover letter generator saved me hours of work. Professional and tailored perfectly."
               </p>
               <div className="flex items-center">
@@ -267,8 +264,8 @@ const LandingPage: React.FC = () => {
                   ER
                 </div>
                 <div className="ml-4">
-                  <div className="font-semibold text-gray-900">Emily Rodriguez</div>
-                  <div className="text-gray-600 text-sm">Data Scientist</div>
+                  <div className="font-semibold text-white">Emily Rodriguez</div>
+                  <div className="text-gray-300 text-sm">Data Scientist</div>
                 </div>
               </div>
             </div>
@@ -277,7 +274,7 @@ const LandingPage: React.FC = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-to-r from-blue-600 to-purple-600">
+      <section className="py-20 bg-gradient-to-r from-blue-600/80 to-purple-600/80 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
             Ready to Transform Your Career?

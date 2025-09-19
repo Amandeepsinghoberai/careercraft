@@ -11,7 +11,6 @@ import {
   Globe,
   Lightbulb
 } from 'lucide-react';
-import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Features: React.FC = () => {
@@ -90,19 +89,17 @@ const Features: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-white">
-      <Header />
-      
+    <div className="min-h-screen">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-blue-50 to-purple-50 py-20">
+      <section className="py-20 pt-32">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+          <h1 className="text-4xl md:text-5xl font-bold text-white mb-6">
             Powerful Features for{' '}
-            <span className="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
               Resume Success
             </span>
           </h1>
-          <p className="text-xl text-gray-600 mb-8 max-w-3xl mx-auto">
+          <p className="text-xl text-gray-300 mb-8 max-w-3xl mx-auto">
             Discover how our AI-powered platform transforms ordinary resumes into 
             interview-winning documents that get noticed by employers and pass ATS systems.
           </p>
